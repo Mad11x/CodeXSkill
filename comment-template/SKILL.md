@@ -1,6 +1,6 @@
 ---
 name: comment-template
-description: Output or customize a preset design review comment template in English only. Use when the user asks in Chinese or English to create a comment, especially phrases like "帮我创建一个comment", "创建 comment", "生成 comment", "create a comment", or gives a Chinese design suggestion such as "我觉得这个地方应该..." that should be translated, polished in English, inserted at the top of the template, and reflected in the Reason line. Also use when the user provides a prompt/style term that should replace "Porsche" inside the template's Prompts lines, asks to create two image mockups from an uploaded image, wants generated mockup image URLs inserted after the template's "Mockup from ChatGPT" labels, says "创建mockup" to generate only images, or says "取消Comment" / "cancel comment" to output the cancel-comment variant.
+description: Output or customize a preset design review comment template in English only. Use when the user asks in Chinese or English to create a comment, especially phrases like "帮我创建一个comment", "创建 comment", "生成 comment", "create a comment", or gives a Chinese design suggestion such as "我觉得这个地方应该..." that should be translated, polished in English, inserted at the top of the template, and reflected in the Reason line. Also use when the user provides a prompt/style term that should replace "Porsche" inside the template's Prompts lines, asks to create two image mockups from an uploaded image, wants generated mockup image URLs inserted after the template's "Mockup from ChatGPT" labels, says "创建mockup" to generate only images, uploads one image with only a prompt/style term to default to mockup-only generation, or says "取消Comment" / "cancel comment" to output the cancel-comment variant.
 ---
 
 # Comment Template
@@ -33,6 +33,8 @@ If the user asks to replace content, update only the requested part and keep the
 If the user says `取消Comment`, `取消 Comment`, or `cancel comment`, use the Cancel Comment Rules instead of the normal comment template.
 
 If the user says `创建mockup`, `创建 mockup`, or `create mockup`, use the Mockup-Only Rules instead of the normal comment template.
+
+If the user uploads exactly one image and the text input is only a prompt/style term, such as `路虎`, `保时捷`, `宾利`, `Lexus`, or `Land Rover`, default to the Mockup-Only Rules even if the user does not explicitly say `创建mockup`.
 
 If the user provides a prompt or style term to replace `Porsche`, replace only the word `Porsche` in both prompt sentences. Keep the rest of each prompt sentence unchanged unless the user explicitly provides a full replacement prompt.
 
