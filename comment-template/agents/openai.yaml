@@ -1,0 +1,4 @@
+interface:
+  display_name: "Comment Template"
+  short_description: "Draft the preset design comment template."
+  default_prompt: "Use $comment-template to create the preset design comment."
