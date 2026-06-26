@@ -92,7 +92,7 @@ For mockup-only requests:
 - Use the uploaded image as the reference or edit target.
 - Generate exactly one new image unless the user explicitly asks for a different number.
 - Use the Image Mockup Prompt below for image generation.
-- If the user provides a prompt/style term, replace only `Porsche` in the Image Mockup Prompt with that exact term before generating the images.
+- If the user provides a prompt/style term, replace only the brand terms in the Image Mockup Prompt with that exact term before generating the images.
 - Before the images, output the exact final Image Mockup Prompt used for generation, including the user's style-term replacement.
 - The final response should contain only that final image-generation prompt plus the generated image embeds or public image URLs when available.
 - If only local generated images are available, render the images inline in chat rather than describing their paths.
@@ -141,9 +141,9 @@ Prompt outputs:
 
 When the user uploads an image for mockup generation, generate exactly two new images.
 
-Use this prompt for both images, replacing only `Porsche` with the user's provided prompt/style term when one is provided:
+Use this prompt for image generation, replacing only the brand terms with the user's provided prompt/style term when one is provided:
 
-`Apply Porsche's design aesthetic to enhance this interface. Use a pure white background with no gold elements, no black backgrounds, and no large gray areas. Display full layout inside a Porsche-style iPhone 16 Pro mockup.`
+`Apply Land Rover's design aesthetic to enhance this interface. Do not alter the original color tone. Use white background. Display full layout inside a Range Rover-style iPhone 16 Pro mockup.`
 
 This long prompt is for generating images only. It must not appear in the final comment output.
 
@@ -151,7 +151,7 @@ If the user provides a term that needs a possessive form, use natural English po
 
 Example with prompt/style term `Apple`:
 
-`Apply Apple's design aesthetic to enhance this interface. Use a pure white background with no gold elements, no black backgrounds, and no large gray areas. Display full layout inside an Apple-style iPhone 16 Pro mockup.`
+`Apply Apple's design aesthetic to enhance this interface. Do not alter the original color tone. Use white background. Display full layout inside an Apple-style iPhone 16 Pro mockup.`
 
 After both images are generated, place their URLs in the final comment template:
 
