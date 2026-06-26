@@ -143,7 +143,7 @@ When the user uploads an image for mockup generation, generate exactly two new i
 
 Use this prompt for image generation, replacing only the brand terms with the user's provided prompt/style term when one is provided:
 
-`Apply Land Rover's design aesthetic to enhance this interface. Do not alter the original color tone. Use white background. Display full layout inside a Range Rover-style iPhone 16 Pro mockup.`
+`Apply Land Rover's design aesthetic to enhance this interface. Do not alter the original color tone. Use white background. Display full layout inside a Land Rover-style iPhone 16 Pro mockup.`
 
 This long prompt is for generating images only. It must not appear in the final comment output.
 
