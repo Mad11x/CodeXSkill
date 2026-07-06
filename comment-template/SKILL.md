@@ -1,6 +1,6 @@
 ---
 name: comment-template
-description: Output or customize a preset design review comment template in English only. Use when the user asks in Chinese or English to create a comment, especially phrases like "帮我创建一个comment", "创建 comment", "生成 comment", "create a comment", or gives a Chinese design suggestion such as "我觉得这个地方应该..." that should be translated, polished in English, inserted at the top of the template, and reflected in the Reason line. Also use when the user provides a prompt/style term that should replace "Porsche" inside the template's Prompts lines, asks to create two image mockups from an uploaded image, wants generated mockup image URLs inserted after the template's "Mockup from ChatGPT" labels, says "创建mockup" to generate only images, uploads one image with only a prompt/style term to default to mockup-only generation, or says "取消Comment" / "cancel comment" to output the cancel-comment variant.
+description: Output or customize a preset design review comment template in English only. Use when the user asks in Chinese or English to create a comment, especially phrases like "帮我创建一个comment", "创建 comment", "生成 comment", "create a comment", or gives a Chinese design suggestion such as "我觉得这个地方应该..." that should be translated, polished in English, inserted at the top of the template, and reflected in the Reason line. Also use when the user provides a prompt/style term that should replace "Porsche" inside the template's Prompts lines, asks to create two image mockups from an uploaded image, wants generated mockup image URLs inserted after the template's "Mockup from ChatGPT" labels, says "创建mockup" to generate only images, uploads one image with only a prompt/style term to default to mockup-only generation, or says "取消Comment" / "cancel comment" to output the cancel-comment variant and generate one mockup when an image is provided.
 ---
 
 # Comment Template
@@ -38,7 +38,7 @@ If the user uploads exactly one image and the text input is only a prompt/style 
 
 If the user provides a prompt or style term to replace `Porsche`, replace only the word `Porsche` in both prompt sentences. Keep the rest of each prompt sentence unchanged unless the user explicitly provides a full replacement prompt.
 
-If the user uploads an image and asks to create mockups, create exactly two new images from the uploaded image using the Image Mockup Prompt below. If the user provides a prompt/style term, replace only `Porsche` in the Image Mockup Prompt with that exact term before generating the images.
+If the user uploads an image and asks to create mockups, create exactly two new images from the uploaded image using the Image Mockup Prompt below, except cancel-comment requests, which create exactly one mockup image. If the user provides a prompt/style term, replace only `Porsche` in the Image Mockup Prompt with that exact term before generating the images.
 
 The Image Mockup Prompt is only for image generation. Never paste the Image Mockup Prompt into the final comment's `Prompts:` sections.
 
@@ -119,8 +119,9 @@ For cancel comments:
 - Keep only one `Mockup from ChatGPT:` section and one `Prompts:` section.
 - Use the first original prompt sentence only: `Apply Porsche's design aesthetic to enhance this interface.`
 - If the user provides a prompt/style term, replace only `Porsche` in that one prompt sentence.
+- If the user uploads an image with a cancel-comment request, generate exactly one mockup image from the uploaded image using the Image Mockup Prompt below, with any provided prompt/style term applied to the brand terms.
+- After generating the cancel-comment mockup image, insert its public URL after the only `Mockup from ChatGPT:` label.
 - If no public mockup URL exists yet, use `[XXX](XXX)` after `Mockup from ChatGPT:`.
-- If generating an image for a cancel comment, generate only one mockup image.
 - Use the same inline `<br>` spacing style as other comment outputs.
 
 Example:
@@ -141,7 +142,7 @@ Prompt outputs:
 
 ## Image Mockup Rules
 
-When the user uploads an image for mockup generation, generate exactly two new images.
+When the user uploads an image for mockup generation, generate exactly two new images, except cancel-comment requests, which generate exactly one mockup image.
 
 Use this prompt for image generation, replacing only the brand terms with the user's provided prompt/style term when one is provided:
 
