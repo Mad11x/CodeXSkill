@@ -1,0 +1,26 @@
+{
+  "id": "9d4d6776-6a4b-4e24-b21c-7098d44b523b",
+  "name": "comment-template",
+  "display_name": "Comment Template",
+  "description": "将中文或英文设计建议整理成结构固定、可直接发送的英文评审评论，并支持文案替换、取消评论以及基于截图生成品牌风格的界面 mockup。",
+  "version": "1.0.1",
+  "recommended_for": [
+    "Marketing Support",
+    "Marketing",
+    "QC"
+  ],
+  "tags": [
+    "design-review",
+    "comment",
+    "mockup",
+    "image-generation"
+  ],
+  "author_email": "madma@88vip.site",
+  "author_name": "MadMa",
+  "example_prompts": [
+    "沙皇，用 Comment Template 把“删除按钮要二次确认”整理成英文设计评审评论",
+    "用 Comment Template 将登录页文案替换建议生成可直接发邮件的英文评论",
+    "沙皇，用 Comment Template 基于这张截图生成两版 Land Rover 风格 mockup",
+    "取消 Comment：拒绝把播放按钮移到页头，并生成 Porsche 风格 mockup"
+  ]
+}
