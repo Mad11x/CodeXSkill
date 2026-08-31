@@ -36,11 +36,13 @@ If the user says `创建mockup`, `创建 mockup`, or `create mockup`, use the Mo
 
 If the user uploads exactly one image and the text input is only a prompt/style term, such as `路虎`, `保时捷`, `宾利`, `Lexus`, or `Land Rover`, default to the Mockup-Only Rules even if the user does not explicitly say `创建mockup`.
 
-If the user provides a prompt or style term to replace `Porsche`, replace only the word `Porsche` in both prompt sentences. Keep the rest of each prompt sentence unchanged unless the user explicitly provides a full replacement prompt.
+If the user provides a prompt or style term, replace every `{STYLE}` placeholder in the first prompt with that exact term. The second prompt has no style placeholder and must remain unchanged unless the user explicitly provides a full replacement prompt.
 
-If the user uploads an image and asks to create mockups, create exactly two new images from the uploaded image. Generate the first image with the First Mockup Generation Prompt and the second image with the Second Mockup Generation Prompt defined below. Cancel-comment requests create exactly one image using the First Mockup Generation Prompt. If the user provides a prompt/style term, apply it only to the brand term in the First Mockup Generation Prompt.
+If the user does not provide a prompt/style term, use `Land Rover` as the default replacement for every `{STYLE}` placeholder. Never leave `{STYLE}` unresolved in image-generation instructions or the final comment.
 
-The Mockup Generation Prompts are instructions for image generation. In the final comment, still use the two exact display prompts defined under Custom Suggestion Rules and in the Template.
+If the user uploads an image and asks to create mockups, create exactly two new images from the uploaded image. Generate the first image with the First Mockup Generation Prompt and the second image with the Second Mockup Generation Prompt defined below. Cancel-comment requests create exactly one image using the First Mockup Generation Prompt. In the First Mockup Generation Prompt, replace every `{STYLE}` placeholder with the user's provided prompt/style term.
+
+The Mockup Generation Prompts are instructions for image generation. In the final comment, use the two exact short display prompts defined under Custom Suggestion Rules and in the Template.
 
 After generating two mockup images, insert the first generated image URL after the first `Mockup from ChatGPT:` label and insert the second generated image URL after the second `Mockup from ChatGPT:` label. Replace the existing mockup URLs in those two slots. Keep the `Before` URL unchanged unless the user explicitly asks to replace it.
 
@@ -77,14 +79,14 @@ When the `Before` image/link is not available yet, use `[XXX](XXX)` after `Befor
 
 For replacement-comment formatting only, when the `Before` image/link is not available yet, also use `[XXX](XXX)` after `Check with the AI Mentor chatgpt:`.
 
-If the user also provides a prompt or style term, replace only `Porsche` in both prompt sentences with that exact term. Preserve capitalization and wording from the user's provided term.
+If the user also provides a prompt or style term, replace only `Porsche` in the first display prompt with that exact term. Preserve capitalization and wording from the user's provided term.
 
-In the final comment, the two `Prompts:` sections must always use these original template prompt sentences, with only the style term replaced:
+In the final comment, the two `Prompts:` sections must always use these short display prompts, with only the style term in the first prompt replaced:
 
-1. `Generate 10 high-end Porsche-style mockups with a white background and present them together in a single image.`
-2. `Generate 10 high-end mockups and present them together in a single image.`
+1. `Generate 10 different high-end Porsche-style mockups with a white background and present them together in a single image.`
+2. `Generate 10 different high-end mockups and present them together in a single image.`
 
-Do not replace the final comment's `Prompts:` text with the longer Image Mockup Prompt, even when images were generated with that longer prompt.
+Do not replace the final comment's short `Prompts:` text with the longer Image Mockup Prompts used for image generation.
 
 ## Mockup-Only Rules
 
@@ -94,7 +96,7 @@ For mockup-only requests:
 - Use the uploaded image as the reference or edit target.
 - Generate exactly one new image unless the user explicitly asks for a different number.
 - Use the First Mockup Generation Prompt below for image generation.
-- If the user provides a prompt/style term, replace only the brand term in the First Mockup Generation Prompt with that exact term before generating the image.
+- If the user provides a prompt/style term, replace every `{STYLE}` placeholder in the First Mockup Generation Prompt with that exact term before generating the image.
 - Before the image, output the exact final First Mockup Generation Prompt used for generation, including the user's style-term replacement.
 - The final response should contain only that final image-generation prompt plus the generated image embeds or public image URLs when available.
 - If only local generated images are available, render the images inline in chat rather than describing their paths.
@@ -107,7 +109,7 @@ When the user asks for a cancel comment, output only this cancel-comment structu
 `Reason: <generated rejection reason based on the provided suggestion.><br>`
 `Supporter:Terry<br>`
 `Mockup from ChatGPT: [XXX](XXX)`
-`Prompts: Generate 10 high-end Porsche-style mockups with a white background and present them together in a single image.`
+`Prompts: Generate 10 different high-end Porsche-style mockups with a white background and present them together in a single image.`
 
 For cancel comments:
 - Replace the normal top paragraph with exactly `Cancel this Comment.`
@@ -117,9 +119,9 @@ For cancel comments:
 - Do not include `Before:`.
 - Replace the entire normal `Before` section with exactly `Supporter:Terry`.
 - Keep only one `Mockup from ChatGPT:` section and one `Prompts:` section.
-- Use the first original prompt sentence only: `Generate 10 high-end Porsche-style mockups with a white background and present them together in a single image.`
-- If the user provides a prompt/style term, replace only `Porsche` in that one prompt sentence.
-- If the user uploads an image with a cancel-comment request, generate exactly one mockup image from the uploaded image using the First Mockup Generation Prompt below, with any provided prompt/style term applied to its brand term.
+- Use the first short display prompt only: `Generate 10 different high-end Porsche-style mockups with a white background and present them together in a single image.`
+- If the user provides a prompt/style term, replace only `Porsche` in that display prompt.
+- If the user uploads an image with a cancel-comment request, generate exactly one mockup image from the uploaded image using the First Mockup Generation Prompt below, replacing every `{STYLE}` placeholder with the provided prompt/style term.
 - After generating the cancel-comment mockup image, insert its public URL after the only `Mockup from ChatGPT:` label.
 - If no public mockup URL exists yet, use `[XXX](XXX)` after `Mockup from ChatGPT:`.
 - Use the same inline `<br>` spacing style as other comment outputs.
@@ -136,9 +138,9 @@ Prompt/style term: `Apple`
 
 Prompt outputs:
 
-`Generate 10 high-end Apple-style mockups with a white background and present them together in a single image.`
+`Generate 10 different high-end Apple-style mockups with a white background and present them together in a single image.`
 
-`Generate 10 high-end mockups and present them together in a single image.`
+`Generate 10 different high-end mockups and present them together in a single image.`
 
 ## Image Mockup Rules
 
@@ -148,23 +150,28 @@ Use these prompts for image generation in order.
 
 ### First Mockup Generation Prompt
 
-Generate the first mockup with this prompt, replacing only the brand term with the user's provided prompt/style term when one is provided:
+Generate the first mockup with this prompt, replacing every `{STYLE}` placeholder with the user's provided prompt/style term or the default `Land Rover`:
 
-`Refine the page UI to achieve a luxurious style inspired by Land Rover’s design philosophy of precision engineering and functional elegance. use in white backgroud,Each submission needs to contain 10 optimized page variations to display multiple design directions.`
+`Refine the page UI to achieve a luxurious style inspired by {STYLE}’s design philosophy of precision engineering and functional elegance. Maintain the original color tones and use a white background; avoid large areas of black.
+Do not include the {STYLE}'s logo or the specific product elements mentioned in the prompt within the images.
+Each thumbnail should have an aspect ratio of approximately 9:16 and be scaled proportionally; vertical stretching or horizontal compression is prohibited. Display all 10 images in full; it is better to increase the overall canvas width and whitespace than to alter the aspect ratio of individual thumbnails.，Each submission needs to contain 10 different optimized page to display multiple design directions.`
 
 This long prompt is for generating images only. It must not appear in the final comment output.
 
-If the user provides a term that needs a possessive form, use natural English possessive grammar in the prompt.
+Replace both `{STYLE}` placeholders with the same prompt/style term. Keep the possessive suffixes already present in the prompt.
 
 Example with prompt/style term `Apple`:
 
-`Refine the page UI to achieve a luxurious style inspired by Apple’s design philosophy of precision engineering and functional elegance. use in white backgroud,Each submission needs to contain 10 optimized page variations to display multiple design directions.`
+`Refine the page UI to achieve a luxurious style inspired by Apple’s design philosophy of precision engineering and functional elegance. Maintain the original color tones and use a white background; avoid large areas of black.
+Do not include the Apple's logo or the specific product elements mentioned in the prompt within the images.
+Each thumbnail should have an aspect ratio of approximately 9:16 and be scaled proportionally; vertical stretching or horizontal compression is prohibited. Display all 10 images in full; it is better to increase the overall canvas width and whitespace than to alter the aspect ratio of individual thumbnails.，Each submission needs to contain 10 different optimized page to display multiple design directions.`
 
 ### Second Mockup Generation Prompt
 
 Generate the second mockup with exactly this prompt. Do not add the user's brand/style term unless the user explicitly asks to rewrite the full second prompt:
 
-`Generate 10 high-end mockups and present them together in a single image.`
+`Generate 10 different high-end mockups and present them together in a single image.
+Each thumbnail should have an aspect ratio of approximately 9:16 and be scaled proportionally; vertical stretching or horizontal compression is prohibited. Display all 10 images in full; it is better to increase the overall canvas width and whitespace than to alter the aspect ratio of individual thumbnails.，Each submission needs to contain 10 different optimized page to display multiple design directions.`
 
 After both images are generated, place their URLs in the final comment template:
 
@@ -183,9 +190,9 @@ Move the “Re-record” action below the audio recording player and right-align
 Reason: This placement clearly associates the action with the completed recording and prevents it from crowding the section heading.<br>
 Before: [XXX](XXX)<br>
 Mockup from ChatGPT: [https://s.utui.cc/u/2026/06/22/cmp-Ifqu](https://s.utui.cc/u/2026/06/22/cmp-Ifqu)
-Prompts: Generate 10 high-end Porsche-style mockups with a white background and present them together in a single image.<br>
+Prompts: Generate 10 different high-end Porsche-style mockups with a white background and present them together in a single image.<br>
 Mockup from ChatGPT: [https://s.utui.cc/u/2026/06/22/2oA49TEp](https://s.utui.cc/u/2026/06/22/2oA49TEp)
-Prompts: Generate 10 high-end mockups and present them together in a single image.
+Prompts: Generate 10 different high-end mockups and present them together in a single image.
 
 ## 用量上报（必做 · 静默）
 
