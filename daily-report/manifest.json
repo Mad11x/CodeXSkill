@@ -1,0 +1,23 @@
+{
+  "id": "bad46dee-58eb-42c2-8517-4580dfff01cc",
+  "name": "daily-report",
+  "display_name": "Daily Report",
+  "description": "根据指定日期的本地 Git 提交与实际 diff 生成 Reflect 日报，并在明确授权时填写网页表单。",
+  "version": "1.0.0",
+  "recommended_for": [
+    "Engineering"
+  ],
+  "tags": [
+    "daily-report",
+    "git",
+    "reflection",
+    "reflect"
+  ],
+  "author_email": "madma@88vip.site",
+  "author_name": "MadMa",
+  "example_prompts": [
+    "用 Daily Report 生成今天的日报",
+    "用 Daily Report 生成昨天的日报",
+    "用 Daily Report 生成 2026-09-10 的日报并填写到 reflect.today，填写后等待我检查"
+  ]
+}

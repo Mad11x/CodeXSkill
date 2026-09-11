@@ -1,0 +1,4 @@
+interface:
+  display_name: "Daily Report"
+  short_description: "Draft structured Reflect daily journal entries"
+  default_prompt: "Use $daily-report to help me prepare today's Reflect journal entry."
