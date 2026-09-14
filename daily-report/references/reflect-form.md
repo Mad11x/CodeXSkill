@@ -46,7 +46,7 @@ This reference records the form visible at `reflect.today` on September 11, 2026
 - Include only committed work. Exclude unstaged changes, staged-but-uncommitted changes, and untracked files.
 - Inspect both each commit message and its actual diff when preparing the summary. Treat the commit message as context, not as a complete or necessarily accurate description.
 - Use the committed diff as the primary source of truth when the message and implementation differ. Do not claim outcomes that cannot be supported by the committed changes.
-- Format the work summary as a numbered list.
+- Format the work summary as copyable plain-text numbered paragraphs using `1、`, `2、`, and so on. Never use Markdown ordered-list syntax such as `1. item`.
 - Write one numbered list item per commit. Do not merge multiple commits into one item, even when they concern the same feature.
 - Write the summary in Chinese.
 - Preserve professional names in their original form, including technical terms, product names, framework names, component names, class and method names, APIs, and other established identifiers. Do not translate them mechanically into Chinese.
@@ -82,7 +82,7 @@ This reference records the form visible at `reflect.today` on September 11, 2026
   1. One concrete technical or code-level question exposed by the implementation.
   2. One broader non-code question about the product, users, workflow, business, or industry derived from the day's work.
 - Keep each angle focused on one issue rather than listing many questions.
-- Format the two angles as a numbered list, but do not add labels such as `代码层面`, `代码之外`, `技术问题`, or `产品思考`.
+- Format the two angles as copyable plain-text numbered paragraphs using `1、` and `2、`, but do not add labels such as `代码层面`, `代码之外`, `技术问题`, or `产品思考`.
 - Prefer a concrete question that the day's work genuinely exposes and that would benefit from further thought or team input.
 - Do not present an issue already resolved by the commit as if it were still unresolved.
 - Write in Chinese while preserving professional names in their original form.
@@ -130,7 +130,7 @@ This reference records the form visible at `reflect.today` on September 11, 2026
 ### Confirmed generation rules
 
 - Generate this section automatically from the selected day's commits and actual diffs, using the same repository, local-branch, committed-work, and `madma` author filters as the work summary.
-- Write in Chinese as a numbered list while preserving professional names in their original form.
+- Write in Chinese as copyable plain-text numbered paragraphs using `1、`, `2、`, and so on, while preserving professional names in their original form.
 - Group related commits when they contribute to the same customer or industry benefit; unlike the work summary, this section does not require one item per commit.
 - Focus on concrete improvements to customer experience, stability, usability, efficiency, safety, or product value.
 - Omit purely internal cleanup that has no meaningful customer or industry benefit.

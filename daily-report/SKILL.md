@@ -21,6 +21,10 @@ Before drafting or filling any section, read [references/reflect-form.md](refere
 
 Use Chinese for generated journal prose while preserving professional and code identifiers in their original form.
 
+## Copyable Numbering
+
+When any generated section contains numbered items, write the number as part of the plain text using `1、`, `2、`, and so on. Put each item in its own paragraph. Do not use Markdown ordered-list syntax such as `1. item`, because rendered list markers may be omitted when the user copies the report.
+
 ## Live Form
 
 Default to generating the report in chat only. Interact with `reflect.today` and fill the live form only when the user explicitly instructs the skill to do so. A request to generate, preview, revise, or review a report does not authorize live form interaction.
