@@ -3,7 +3,7 @@
   "name": "daily-report",
   "display_name": "Daily Report",
   "description": "根据指定日期的本地 Git 提交与实际 diff 生成 Reflect 日报，并在明确授权时填写网页表单。",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "recommended_for": [
     "Engineering"
   ],

@@ -84,7 +84,9 @@ This reference records the form visible at `reflect.today` on September 11, 2026
 - Keep each angle focused on one issue rather than listing many questions.
 - Format the two angles as copyable plain-text numbered paragraphs using `1、` and `2、`, but do not add labels such as `代码层面`, `代码之外`, `技术问题`, or `产品思考`.
 - Prefer a concrete question that the day's work genuinely exposes and that would benefit from further thought or team input.
-- Do not present an issue already resolved by the commit as if it were still unresolved.
+- Questions do not need to describe urgent or high-priority problems. Prefer useful, lightweight observations when the implementation exposes duplicated rules, scattered checks, inconsistent behavior, recurring edge cases, small maintenance risks, or modest automation opportunities.
+- Keep the proposed response proportional to the issue. Do not automatically turn a minor observation into a ticket, owner, deadline, escalation, or team-wide process.
+- Do not present an issue already resolved by the commit as if it were still unresolved. When a completed fix reveals a broader concern, state that the immediate issue was fixed and ask about the remaining pattern, such as whether repeated visibility checks should gradually be centralized.
 - Write in Chinese while preserving professional names in their original form.
 
 ## 4. 我或团队今天或过去几天犯下的小错误或失误
