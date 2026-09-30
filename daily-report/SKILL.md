@@ -14,7 +14,7 @@ Before drafting or filling any section, read [references/reflect-form.md](refere
 1. Resolve the report date from the user's request. Use today in the local timezone when no date is given.
 2. Run `scripts/collect_commits.py --date YYYY-MM-DD` to discover every Git repository under `/Users/mad/workspace` and collect `madma` commits reachable from all local branches. The output includes commit metadata, stats, and patches.
 3. Read every returned commit message and diff. Use the diff as the source of truth and keep repository identities distinct.
-4. Draft only the enabled sections and conditional sections defined in the reference. Respect every character limit.
+4. Draft only the enabled sections and conditional sections defined in the reference. Respect every character limit. When several completed items are present, apply the reference's impact-priority rules instead of preserving commit chronology.
 5. If no matching commits exist, say so and ask whether to use another date or source. Do not invent work.
 6. When a Friday or Saturday mistake section is required but the week's commits do not support a concrete mistake, ask the user for one. Do not invent a mistake or say that no mistake occurred.
 7. Browse for current internet-industry information when generating section 10, prioritizing recent primary sources. Keep source links available when returning the report in chat.

@@ -48,6 +48,15 @@ This reference records the form visible at `reflect.today` on September 11, 2026
 - Use the committed diff as the primary source of truth when the message and implementation differ. Do not claim outcomes that cannot be supported by the committed changes.
 - Format the work summary as copyable plain-text numbered paragraphs using `1、`, `2、`, and so on. Never use Markdown ordered-list syntax such as `1. item`.
 - Write one numbered list item per commit. Do not merge multiple commits into one item, even when they concern the same feature.
+- Order the numbered items by impact rather than commit time. Use this default priority from highest to lowest:
+  1. Privacy, security, compliance, access control, or unintended exposure.
+  2. Core-function correctness, data integrity, or failures that block a main user journey.
+  3. Revenue, payment, conversion, retention, or other directly supported business impact.
+  4. Stability, reliability, performance, or recurring error prevention.
+  5. General usability, clarity, accessibility, and ordinary customer-experience improvements.
+  6. Copy, visual polish, minor consistency changes, and internal cleanup.
+- Within the same priority level, rank work by the severity of the failure or opportunity, the number of users or flows affected, likely occurrence frequency, and then the strength of evidence in the diff. Use commit time only as a final tie-breaker.
+- Keep every supported work item even when it ranks low. Priority controls ordering and emphasis; it must not hide completed work or inflate weak evidence into a higher-impact claim.
 - Write the summary in Chinese.
 - Preserve professional names in their original form, including technical terms, product names, framework names, component names, class and method names, APIs, and other established identifiers. Do not translate them mechanically into Chinese.
 - Each numbered item must explain what was completed, the key implementation changes, and the resulting effect or value.
@@ -134,6 +143,7 @@ This reference records the form visible at `reflect.today` on September 11, 2026
 - Generate this section automatically from the selected day's commits and actual diffs, using the same repository, local-branch, committed-work, and `madma` author filters as the work summary.
 - Write in Chinese as copyable plain-text numbered paragraphs using `1、`, `2、`, and so on, while preserving professional names in their original form.
 - Group related commits when they contribute to the same customer or industry benefit; unlike the work summary, this section does not require one item per commit.
+- Present customer benefits in the same impact order used by the work summary: privacy and safety first, then core-function correctness, business impact, stability, general usability, and finally copy or visual polish.
 - Focus on concrete improvements to customer experience, stability, usability, efficiency, safety, or product value.
 - Omit purely internal cleanup that has no meaningful customer or industry benefit.
 - Do not claim benefits that the committed changes do not support.
